@@ -12,7 +12,7 @@ class Core extends Container implements CoreContract
     /**
      * @var string
      */
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.2';
 
     /**
      * @var string
@@ -75,9 +75,11 @@ class Core extends Container implements CoreContract
 
     /**
      * @param  \Spires\Core\ServiceProvider|string $provider
-     * @param  array $config
-     * @param  bool $force
+     * @param  array                               $config
+     * @param  bool                                $force
+     *
      * @return ServiceProvider
+     * @throws UndefinedConfigKeyException
      */
     public function register($provider, array $config = [], $force = false)
     {
@@ -114,6 +116,7 @@ class Core extends Container implements CoreContract
      * Register all of the base service providers.
      *
      * @return void
+     * @throws UndefinedConfigKeyException
      */
     public function registerBaseServiceProviders()
     {

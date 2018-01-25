@@ -7,6 +7,12 @@ use Spires\Plugins\Message\Inbound\Message as InboundMessage;
 use Spires\Plugins\Message\Outbound\Message;
 use Spires\Plugins\SystemMessage\Outbound\SystemMessage;
 
+/**
+ * @param string|NULL $abstract
+ * @param array       $parameters
+ *
+ * @return mixed|Core
+ */
 function core(string $abstract = null, array $parameters = [])
 {
     if (is_null($abstract)) {
@@ -16,16 +22,27 @@ function core(string $abstract = null, array $parameters = [])
     return Core::getInstance()->make($abstract, $parameters);
 }
 
+/**
+ * @param string $command
+ * @param string $params
+ */
 function send_command(string $command, string $params)
 {
     core(Client::class)->write((string) new SystemMessage($command, $params));
 }
 
+/**
+ * @param array  $targets
+ * @param string $text
+ */
 function send_to(array $targets, string $text)
 {
     core(Client::class)->write((string) new Message($targets, $text));
 }
 
+/**
+ * @param string $text
+ */
 function reply(string $text)
 {
     $myNick = core(Client::class)->user()->nickname();

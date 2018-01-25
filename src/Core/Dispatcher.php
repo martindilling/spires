@@ -87,6 +87,9 @@ class Dispatcher
         });
     }
 
+    /**
+     * @param string $message
+     */
     private function debug(string $message)
     {
         $indention = str_repeat(' ', $this->indent*2);

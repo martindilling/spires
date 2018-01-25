@@ -13,7 +13,7 @@ class ServiceProvider extends \Spires\Core\ServiceProvider
     public function plugins()
     {
         return [
-            Plugin::class
+            Plugin::class,
         ];
     }
 }

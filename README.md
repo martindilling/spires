@@ -15,8 +15,11 @@ Please note that this project is licensed under the MIT license. We encourage fo
 For further details on Contributing guidelines, please read the [contributing guide](/CONTRIBUTING.md).
 
 
+# Something new
+All the new things go here!!
 
-# Composer Skeleton
+
+# Spires IRC bot
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -49,7 +52,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ ...
+$ phpunit
 ```
 
 ## Contributing

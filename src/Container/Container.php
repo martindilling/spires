@@ -118,8 +118,10 @@ class Container implements ArrayAccess, ContainerContract
      * Resolve the given type from the container.
      *
      * @param  string $abstract
-     * @param  array $parameters
+     * @param  array  $parameters
+     *
      * @return mixed
+     * @throws BindingResolutionException
      */
     public function make(string $abstract, array $parameters = [])
     {
@@ -370,7 +372,9 @@ class Container implements ArrayAccess, ContainerContract
      *
      * @param  array $parameters
      * @param  array $primitives
+     *
      * @return array
+     * @throws BindingResolutionException
      */
     protected function getDependencies(array $parameters, array $primitives = [])
     {
@@ -475,8 +479,10 @@ class Container implements ArrayAccess, ContainerContract
      * Get the dependency for the given call parameter.
      *
      * @param  \ReflectionParameter $parameter
-     * @param  array $parameters
+     * @param  array                $parameters
+     *
      * @return mixed
+     * @throws BindingResolutionException
      */
     protected function addDependencyForCallParameter(ReflectionParameter $parameter, array &$parameters)
     {
@@ -508,7 +514,9 @@ class Container implements ArrayAccess, ContainerContract
      * Get the value at a given offset.
      *
      * @param  string $key
+     *
      * @return mixed
+     * @throws BindingResolutionException
      */
     public function offsetGet($key)
     {
