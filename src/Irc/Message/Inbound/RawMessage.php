@@ -5,9 +5,24 @@ namespace Spires\Irc\Message\Inbound;
 
 class RawMessage extends \Spires\Irc\Message\Outbound\RawMessage
 {
+    /**
+     * @var string
+     */
     protected $nickname;
+
+    /**
+     * @var string
+     */
     protected $username;
+
+    /**
+     * @var string
+     */
     protected $hostname;
+
+    /**
+     * @var string
+     */
     protected $serverName;
 
     public function __construct(

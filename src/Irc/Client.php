@@ -9,6 +9,12 @@ use Spires\Irc\Message\Inbound\RawMessage;
 
 class Client
 {
+    private $messages = [
+        'connecting' => 'Spires connecting',
+        'booted' => 'Spires booted',
+        'listening' => 'Spires listening',
+    ];
+
     /**
      * @var Core
      */
@@ -64,7 +70,7 @@ class Client
 
     public function connect()
     {
-        $this->logHeading('Spires connecting');
+        $this->logHeading($this->messages['connecting']);
 
         $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
@@ -94,7 +100,7 @@ class Client
 
     public function logCore(Core $core)
     {
-        $this->logHeading('Spires booted');
+        $this->logHeading($this->messages['booted']);
 
         $this->logDebug("Providers:");
         foreach ($core->getLoadedProviders() as $provider => $active) {
@@ -155,7 +161,7 @@ class Client
 
     public function run()
     {
-        $this->logHeading('Spires listening');
+        $this->logHeading($this->messages['booted']);
 
         $parser = new Parser();
 
